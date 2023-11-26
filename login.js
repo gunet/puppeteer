@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const gunet = require('../../gunet.js');
+const gunet = require('./gunet.js');
 const url = process.argv.slice(2);
 console.log(url[0]);
 

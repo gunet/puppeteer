@@ -27,7 +27,7 @@ RUN apt-get update \
 
 USER pptruser
 
-RUN mkdir -p ${PUPPETEER_ROOT}/scenarios/cas
+RUN mkdir -p ${PUPPETEER_ROOT}/scenarios
 
 COPY --from=puppeteer ${PUPPETEER_ROOT}/ ${PUPPETEER_ROOT}/
 COPY package.json ${PUPPETEER_ROOT}/
