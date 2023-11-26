@@ -51,6 +51,9 @@ console.log(url[0]);
 * Environment variables
   - `CAS_USER`: Username (default `gunetdemo`)
   - `CAS_PASSWORD`: Password (default `gunetdemo`)
+  - `CAS_TYPE`: The CAS type. Can be one of:
+    * `cas`: If using Apereo CAS (the default)
+    * `simple-cas`: If using the gunet/simpleidentity `simple-cas` Docker container   
 * Show module version: `docker run --rm ghcr.io/gunet/puppeteer npm list`
 * General Run: `docker run -it --cap-add=SYS_ADMIN --rm ghcr.io/gunet/puppeteer node --unhandled-rejections=strict <scenario + args>`
 * Specific scenarios:
