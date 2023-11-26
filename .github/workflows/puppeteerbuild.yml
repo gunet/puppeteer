@@ -36,7 +36,7 @@ jobs:
       - name: Build and push Base image
         uses: docker/build-push-action@v3
         with:
-          context: puppeteer
+          context: .
           file: ./Dockerfile
           push: true
           tags: ghcr.io/gunet/puppeteer:latest
