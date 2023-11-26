@@ -9,6 +9,7 @@ on:
     paths:
       - 'scenarios/**'
       - 'gunet.js'
+      - 'login.js'
       - 'Dockerfile'
       - 'package.json'      
 
