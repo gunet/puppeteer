@@ -7,9 +7,14 @@ A GUNet puppeteer Docker image
 * Puppeteer [Documentation](https://pptr.dev/category/guides)
 * Puppeteer Docker [documentation](https://pptr.dev/guides/docker)
 * Reference [Dockerfile](https://github.com/puppeteer/puppeteer/blob/main/docker/Dockerfile)
-* [Reference](https://www.w3schools.com/cssref/css_selectors.php) of selectors
+
 
 # Documentation
+## Selectors
+* [Reference](https://www.w3schools.com/cssref/css_selectors.php)
+* `#id`: Selects the element with id=`"<id>"`
+* `div p`: Selects all `<p>` elements inside `<div>` elements
+
 ## Main Library
 * File: `gunet.js`
 * Usually common code:
