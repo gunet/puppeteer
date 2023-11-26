@@ -10,6 +10,42 @@ A GUNet puppeteer Docker image
 # Documentation
 ## Main Library
 * File: `gunet.js`
+* Usually common code:
+```
+const puppeteer = require('puppeteer');
+const gunet = require('./gunet.js');
+const url = process.argv.slice(2);
+console.log(url[0]);
+
+(async () => {
+    const browser = await puppeteer.launch(gunet.browserOptions());
+    const page = await gunet.newPage(browser);
+    await page.goto(url[0]);
+    await page.waitForTimeout(1000)
+    -- Do staff --
+    await browser.close();
+})();
+```
+### Funcions
+* `click`
+  - Click a button
+  - Example: `await cas.click(page, "#login")`
+* `assertVisibility`
+  - Check that an element is actually visible
+  - Example: `await cas.assertVisibility(page, '#token')`
+* `assertInnerText`
+  - Check that a certain text is present
+  - Example: `await gunet.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");`
+* `type`
+  - Type value in text field
+  - Example: `await gunet.type(page, "#token",'999666');`
+#### CAS SSO functions
+* `loginWith`
+  - Login with specific username and password
+  - Example: ```await gunet.loginWith(page, `${process.env.CAS_USER}`, `${process.env.CAS_PASSWORD}`);```
+* `assertTicketGrantingCookie`
+  - Check that we received a TickerGrantingCookie (TGT)
+  - Example: `await gunet.assertTicketGrantingCookie(page);`
 
 ## Usage
 * Environment variables
