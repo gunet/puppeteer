@@ -4,7 +4,8 @@ A GUNet puppeteer Docker image
 **Important**: This is a work in progress
 
 # References
-* Puppeteer [documentation](https://pptr.dev/guides/docker)
+* Puppeteer [Documentation](https://pptr.dev/category/guides)
+* Puppeteer Docker [documentation](https://pptr.dev/guides/docker)
 * Reference [Dockerfile](https://github.com/puppeteer/puppeteer/blob/main/docker/Dockerfile)
 
 # Documentation
@@ -29,22 +30,41 @@ console.log(url[0]);
 ### Funcions
 * `click`
   - Click a button
+  - Arguments
+    - `page` element
+    - `selector`
   - Example: `await cas.click(page, "#login")`
 * `assertVisibility`
   - Check that an element is actually visible
+  - Arguments
+    - `page` element
+    - `selector`
   - Example: `await cas.assertVisibility(page, '#token')`
 * `assertInnerText`
   - Check that a certain text is present
+  - Arguments
+    - `page` element
+    - `selector`
+    - `value` to search for
   - Example: `await gunet.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");`
 * `type`
   - Type value in text field
+  - Arguments
+    - `page` element
+    - `selector`
+    - `value` typed
   - Example: `await gunet.type(page, "#token",'999666');`
 #### CAS SSO functions
 * `loginWith`
   - Login with specific username and password
+  - Arguments
+    - `page` element
+    - `user`
+    - `password`
   - Example: ```await gunet.loginWith(page, `${process.env.CAS_USER}`, `${process.env.CAS_PASSWORD}`);```
 * `assertTicketGrantingCookie`
   - Check that we received a TickerGrantingCookie (TGT)
+  - Argument: `page` element
   - Example: `await gunet.assertTicketGrantingCookie(page);`
 * `casLogin`
   - Perform all necessary elements of checking for successful SSO login utilizing a provided web page element. Useful when performing an SSO login is just *one* of many steps of a scenario.
