@@ -325,3 +325,10 @@ exports.assertTextContentStartsWith = async (page, selector, value) => {
     let header = await this.textContent(page, selector);
     assert(header.startsWith(value));
 }
+
+exports.assertTextInSource = async (page, value) => {
+    let source = await page.content();
+    let position = await source.search(value);
+    console.log(`Position for value [${value}]: [${position}]`);
+    assert(position != -1);
+}

@@ -7,6 +7,7 @@ A GUNet puppeteer Docker image
 * Puppeteer [Documentation](https://pptr.dev/category/guides)
 * Puppeteer Docker [documentation](https://pptr.dev/guides/docker)
 * Reference [Dockerfile](https://github.com/puppeteer/puppeteer/blob/main/docker/Dockerfile)
+* [Reference](https://www.w3schools.com/cssref/css_selectors.php) of selectors
 
 # Documentation
 ## Main Library
@@ -47,6 +48,12 @@ console.log(url[0]);
     - `selector`
     - `value` to search for
   - Example: `await gunet.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");`
+  * `assertTextInSource`
+    - Check that a certain text is present in page source (for instance when handling text/json/xml pages)
+    - Arguments
+      - `page`
+      - `value` to search for
+  * Example: `await gunet.assertTextInSource(page,'OAuth2Token');`
 * `type`
   - Type value in text field
   - Arguments
