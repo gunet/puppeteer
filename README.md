@@ -7,7 +7,11 @@ A GUNet puppeteer Docker image
 * Puppeteer [documentation](https://pptr.dev/guides/docker)
 * Reference [Dockerfile](https://github.com/puppeteer/puppeteer/blob/main/docker/Dockerfile)
 
-# Usage
+# Documentation
+## Main Library
+* File: `gunet.js`
+
+## Usage
 * Environment variables
   - `CAS_USER`: Username (default `gunetdemo`)
   - `CAS_PASSWORD`: Password (default `gunetdemo`)
