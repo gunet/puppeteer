@@ -46,6 +46,15 @@ console.log(url[0]);
 * `assertTicketGrantingCookie`
   - Check that we received a TickerGrantingCookie (TGT)
   - Example: `await gunet.assertTicketGrantingCookie(page);`
+* `casLogin`
+  - Perform all necessary elements of checking for successful SSO login utilizing a provided web page element. Useful when performing an SSO login is just *one* of many steps of a scenario.
+  - Arguments:
+    * `page` element
+    * `url` of SSO
+    * `user` to use
+    * `password` to use
+    * `cas_type` to use. Can be one of `cas` (the default) for regular CAS SSO and `simple-cas` for the `gunet/simple-cas` container
+  - Example: ```await gunet.casLogin(page, url[0], `${process.env.CAS_USER}`,`${process.env.CAS_PASSWORD}`,`${process.env.CAS_TYPE}`);```
 
 ## Usage
 * Environment variables

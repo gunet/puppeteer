@@ -132,6 +132,20 @@ exports.assertNoTicketGrantingCookie = async (page) => {
     assert(tgc.length === 0);
 }
 
+exports.casLogin = async (page, url, user, password, cas_type = "cas") => {
+    await page.goto(url);
+    await page.waitForTimeout(1000)
+    await this.loginWith(page, user, password);
+    await this.assertTicketGrantingCookie(page);
+    await page.waitForTimeout(2000)
+    if (cas_type === 'cas') {
+        await this.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");
+    }
+    else if (cas_type === 'simple-cas') {
+        await this.assertInnerText(page, '#content div h2', "Log In Successful");
+    }
+}
+
 exports.submitForm = async (page, selector) => {
     console.log(`Submitting form ${selector}`);
     await page.$eval(selector, form => form.submit());
