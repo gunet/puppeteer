@@ -30,12 +30,12 @@ USER pptruser
 RUN mkdir -p ${PUPPETEER_ROOT}/scenarios
 
 COPY --from=puppeteer ${PUPPETEER_ROOT}/ ${PUPPETEER_ROOT}/
-COPY package.json ${PUPPETEER_ROOT}/
+COPY --chown=pptruser:pptruser package.json ${PUPPETEER_ROOT}/
 RUN cd ${PUPPETEER_ROOT} && \
     npm install && \
     npm cache clean -f
-COPY *.js ${PUPPETEER_ROOT}/
-COPY scenarios/ ${PUPPETEER_ROOT}/scenarios/
+COPY --chown=pptruser:pptruser *.js ${PUPPETEER_ROOT}/
+COPY --chown=pptruser:pptruser scenarios/ ${PUPPETEER_ROOT}/scenarios/
 
 WORKDIR ${PUPPETEER_ROOT}
 
