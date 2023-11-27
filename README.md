@@ -14,6 +14,7 @@ A GUNet puppeteer Docker image
 * [Reference](https://www.w3schools.com/cssref/css_selectors.php)
 * `#id`: Selects the element with id=`"<id>"`
 * `div p`: Selects all `<p>` elements inside `<div>` elements
+* **Easy** way to find the selector: Inspect an element (in firefox), right click and select `Copy->CSS Selector`
 
 ## Main Library
 * File: `gunet.js`
