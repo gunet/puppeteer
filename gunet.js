@@ -132,17 +132,16 @@ exports.assertNoTicketGrantingCookie = async (page) => {
     assert(tgc.length === 0);
 }
 
-exports.casLogin = async (page, user, password, cas_type = "cas") => {
+exports.casLogin = async (page, user, password, cas_lang = "en") => {
     await page.waitForTimeout(1000)
     await this.loginWith(page, user, password);
     await this.assertTicketGrantingCookie(page);
     await page.waitForTimeout(2000)
-    if (cas_type === 'cas') {
+    if (cas_type === 'en') {
         await this.assertInnerText(page, '#content div h2', "Log In Successful");
-        // await this.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");
     }
-    else if (cas_type === 'simple-cas') {
-        await this.assertInnerText(page, '#content div h2', "Log In Successful");
+    else if (cas_type === 'el') {
+        await this.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");
     }
 }
 

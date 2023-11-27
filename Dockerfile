@@ -43,6 +43,6 @@ ENV HEADLESS=true
 ENV CAS_USER=gunetdemo
 ENV CAS_PASSWORD=gunetdemo
 # Can be one of
-# cas
-# simple-cas (from the gunet/simpleidentity suite)
-ENV CAS_TYPE=cas
+# en
+# el
+ENV CAS_LANG=en
