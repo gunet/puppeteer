@@ -53,12 +53,18 @@ console.log(url[0]);
     - `selector`
     - `value` to search for
   - Example: `await gunet.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");`
-  * `assertTextInSource`
-    - Check that a certain text is present in page source (for instance when handling text/json/xml pages)
-    - Arguments
-      - `page`
-      - `value` to search for
-  * Example: `await gunet.assertTextInSource(page,'OAuth2Token');`
+* `assertTextInSource`
+  - Check that a certain text is present in page source (for instance when handling text/json/xml pages)
+  - Arguments
+    - `page`
+    - `value` to search for
+  - Example: `await gunet.assertTextInSource(page,'OAuth2Token');`
+* `assertPageTitle`
+  - Check the page title
+  - Arguments
+    - `page` element
+    - `value` to search for
+  - Example: `await gunet.assertPageTitle(page, 'SimpleSAMLphp installation page');`
 * `type`
   - Type value in text field
   - Arguments
