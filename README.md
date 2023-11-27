@@ -89,6 +89,16 @@ console.log(url[0]);
   - Example: ```await gunet.casLogin(page, url[0], `${process.env.CAS_USER}`,`${process.env.CAS_PASSWORD}`,`${process.env.CAS_TYPE}`);```
 
 ## Usage
+### Customization
+* If you just want to use `docker run` you can volume mount the `scenarios` folder as `-v <your scenarios folder>:/home/puppeteer/scenarios`
+  - Your JS script will have to include a `const gunet = require('../gunet.js');` in order to use the GUNet libraries
+* You can also extend the base image as (your scenarios are assumed to be in the folder `scenarios`):
+```
+FROM gunet/puppeteer:latest
+
+COPY scenarios/ ${PUPPETEER_ROOT}/scenarios/
+```
+### General usage
 * Environment variables
   - `CAS_USER`: Username (default `gunetdemo`)
   - `CAS_PASSWORD`: Password (default `gunetdemo`)
