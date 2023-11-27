@@ -137,10 +137,10 @@ exports.casLogin = async (page, user, password, cas_lang = "en") => {
     await this.loginWith(page, user, password);
     await this.assertTicketGrantingCookie(page);
     await page.waitForTimeout(2000)
-    if (cas_type === 'en') {
+    if (cas_lang === 'en') {
         await this.assertInnerText(page, '#content div h2', "Log In Successful");
     }
-    else if (cas_type === 'el') {
+    else if (cas_lang === 'el') {
         await this.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");
     }
 }
