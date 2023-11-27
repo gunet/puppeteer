@@ -132,9 +132,7 @@ exports.assertNoTicketGrantingCookie = async (page) => {
     assert(tgc.length === 0);
 }
 
-exports.casLogin = async (page, url, user, password, cas_type = "cas") => {
-    console.log(`Going to ${url}`);
-    await page.goto(url);
+exports.casLogin = async (page, user, password, cas_type = "cas") => {
     await page.waitForTimeout(1000)
     await this.loginWith(page, user, password);
     await this.assertTicketGrantingCookie(page);

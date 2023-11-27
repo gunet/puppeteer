@@ -6,7 +6,8 @@ console.log(url[0]);
 (async () => {
     const browser = await puppeteer.launch(gunet.browserOptions());
     const page = await gunet.newPage(browser);
-    await gunet.casLogin(page, url[0], `${process.env.CAS_USER}`,
+    await page.goto(url);
+    await gunet.casLogin(page, `${process.env.CAS_USER}`,
      `${process.env.CAS_PASSWORD}`,`${process.env.CAS_TYPE}`);
     await browser.close();
 })();
