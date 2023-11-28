@@ -48,12 +48,18 @@ console.log(url[0]);
     - `selector`
   - Example: `await cas.assertVisibility(page, '#token')`
 * `assertInnerText`
-  - Check that a certain text is present
+  - Check that a certain text is present (with **equality** check)
   - Arguments
     - `page` element
     - `selector`
     - `value` to search for
   - Example: `await gunet.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");`
+* `assertInnerTextContains`
+  - Check that a certain text is present in the selector
+  - Arguments
+    - `page` element
+    - `selector`
+    - `value` to search for
 * `assertTextInSource`
   - Check that a certain text is present in page source (for instance when handling text/json/xml pages)
   - Arguments
@@ -73,6 +79,11 @@ console.log(url[0]);
     - `selector`
     - `value` typed
   - Example: `await gunet.type(page, "#token",'999666');`
+* `submitForm`
+  - Submit Form
+  - Arguments
+    - `page` element
+    - `selector`
 #### CAS SSO functions
 * `loginWith`
   - Login with specific username and password
