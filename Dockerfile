@@ -46,3 +46,4 @@ ENV CAS_PASSWORD=gunetdemo
 # en
 # el
 ENV CAS_LANG=en
+ENV TZ=Europe/Athens
