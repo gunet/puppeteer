@@ -116,6 +116,9 @@ COPY scenarios/ ${PUPPETEER_ROOT}/scenarios/
   - `cas`: `./login.js <SSO BASE URL>`
 * Arguments
   - `<SSO BASE URL>`: An example might be `https://sso.uoi.gr` or `https://worker-01.dev.gunet.gr:8443/cas` (in the case of `simple-cas`)
+* Automatic testig with docker compose stack: `docker compose -f <your docker compose stack yaml file> up --exit-code-from <puppeteer service> --attach <puppeteer service`
+  - This will attach only on the puppeteer service output and return the container exit code as the exit code for the whole stack.
+  - The puppeteer service image might include a script that runs scenarios and returns `exit 1` if one of them fails or `exit 0` if all return correctly.
 
 # Size
 * Disk size: `1.17 GB`
