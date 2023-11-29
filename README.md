@@ -47,6 +47,12 @@ console.log(url[0]);
     - `page` element
     - `selector`
   - Example: `await cas.assertVisibility(page, '#token')`
+* `waitForVisible`
+  - Wait until an element is visible
+  - Arguments
+    - `page` element
+    - `selector`
+  - Example: `await this.waitForVisible(page, '#username')`
 * `assertInnerText`
   - Check that a certain text is present (with **equality** check)
   - Arguments

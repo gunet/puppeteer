@@ -82,6 +82,9 @@ exports.uploadImage = async (imagePath) => {
 exports.loginWith = async (page, user, password,
                            usernameField = "#username",
                            passwordField = "#password") => {
+    console.log('Checking for username and password field visibility')
+    await this.waitForVisible(page, usernameField)
+    await this.waitForVisible(page, passwordField)
     console.log(`Logging in with ${user} and ******`);
     await this.type(page, usernameField, user);
     await this.type(page, passwordField, password);
@@ -97,6 +100,12 @@ exports.fetchGoogleAuthenticatorScratchCode = async (user = "casuser") => {
         });
     return JSON.stringify(JSON.parse(response)[0].scratchCodes[0]);
 }
+
+// based on https://stackoverflow.com/a/55212494
+exports.waitForVisible = async (page, selector) => {
+    await page.waitForSelector(selector, {visible: true})
+}
+
 exports.isVisible = async (page, selector) => {
     let element = await page.$(selector);
     console.log(`Checking visibility for ${selector}`);
