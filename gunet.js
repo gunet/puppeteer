@@ -132,16 +132,26 @@ exports.assertNoTicketGrantingCookie = async (page) => {
     assert(tgc.length === 0);
 }
 
-exports.casLogin = async (page, user, password, cas_lang = "en") => {
+exports.casLogin = async (page, user, password, cas_type = 'simple-cas', cas_lang = "en") => {
     await page.waitForTimeout(1000)
     await this.loginWith(page, user, password);
     await this.assertTicketGrantingCookie(page);
     await page.waitForTimeout(2000)
-    if (cas_lang === 'en') {
-        await this.assertInnerText(page, '#content div h2', "Log In Successful");
+    if (cas_type == 'simple-cas') {
+        if (cas_lang === 'en') {
+            await this.assertInnerText(page, '#content div h2', "Log In Successful");
+        }
+        else if (cas_lang === 'el') {
+            await this.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");
+        }
     }
-    else if (cas_lang === 'el') {
-        await this.assertInnerText(page, '#content div h2', "Επιτυχής Σύνδεση");
+    else if (cas_type == 'gunet_cas') {
+        if (cas_lang === 'en') {
+            await this.assertInnerTextContains(page, '#content div h2', "Welcome");
+        }
+        else if (cas_lang === 'el') {
+            await this.assertInnerTextContains(page, '#content div h2', "Kαλώς ήρθες");
+        }
     }
 }
 
