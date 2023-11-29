@@ -47,6 +47,12 @@ console.log(url[0]);
     - `page` element
     - `selector`
   - Example: `await cas.assertVisibility(page, '#token')`
+* `waitForVisible`
+  - Wait until an element is visible instead of naively waiting for specified time hopping for the page to have loaded
+  - Arguments
+    - `page` element
+    - `selector`
+  - Example: `await this.waitForVisible(page, '#username')`
 * `assertInnerText`
   - Check that a certain text is present (with **equality** check)
   - Arguments
@@ -107,6 +113,7 @@ console.log(url[0]);
   - Example: ```await gunet.casLogin(page, `${process.env.CAS_USER}`,`${process.env.CAS_PASSWORD}`,`${process.env.CAS_LANG}`);```
 
 ## Usage
+* Build: `docker compose -f docker-compose.build.yaml build`
 ### Customization
 * If you just want to use `docker run` you can volume mount the `scenarios` folder as `-v <your scenarios folder>:/home/puppeteer/scenarios`
   - Your JS script will have to include a `const gunet = require('../gunet.js');` in order to use the GUNet libraries

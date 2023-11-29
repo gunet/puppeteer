@@ -1,0 +1,13 @@
+version: '3.0'
+
+services:
+  puppeteer:
+    image: gunet/puppeteer
+    build:
+      context: .
+      dockerfile: Dockerfile
+  puppeteer-ghcr:
+    image: ghcr.io/gunet/puppeteer
+    build:
+      context: .
+      dockerfile: Dockerfile
