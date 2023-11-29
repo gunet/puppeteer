@@ -48,7 +48,7 @@ console.log(url[0]);
     - `selector`
   - Example: `await cas.assertVisibility(page, '#token')`
 * `waitForVisible`
-  - Wait until an element is visible
+  - Wait until an element is visible instead of naively waiting for specified time hopping for the page to have loaded
   - Arguments
     - `page` element
     - `selector`
