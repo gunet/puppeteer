@@ -97,7 +97,7 @@ console.log(url[0]);
     - `page` element
     - `user`
     - `password`
-  - Example: ```await gunet.loginWith(page, `${process.env.CAS_USER}`, `${process.env.CAS_PASSWORD}`);```
+  - Example: `await gunet.loginWith(page, process.env.CAS_USER, process.env.CAS_PASSWORD);`
 * `assertTicketGrantingCookie`
   - Check that we received a TickerGrantingCookie (TGT). **Only** in the CAS login page, **not** in applications
   - Argument: `page` element
@@ -110,7 +110,10 @@ console.log(url[0]);
     * `password` to use
     * `cas_type` to use. Can be one of `simple-cas` for typical CAS (default) or `gunet-cas` (for GUNet CAS)
     * `cas_lang` to use. Can be one of `en` (default) or `el`
-  - Example: ```await gunet.casLogin(page, `${process.env.CAS_USER}`,`${process.env.CAS_PASSWORD}`,`${process.env.CAS_LANG}`);```
+  - Example: `await gunet.casLogin(page, process.env.CAS_USER, process.env.CAS_PASSWORD,process.env.CAS_LANG);`
+
+## Scripts
+* `run_test.sh <scenario> <server URL>`: Run a specific specified scenario against the `<server URL>`. For example: `./run_test.sh cas https://host.docker.internal:8443/cas`
 
 ## Usage
 * Build: `docker compose -f docker-compose.build.yaml build`
@@ -131,6 +134,7 @@ COPY scenarios/ ${PUPPETEER_ROOT}/scenarios/
   - `CAS_TYPE`: The CAS type. Can be one of `simple-cas` for typical CAS (default) or `gunet-cas` (for GUNet CAS)
 * Show module version: `docker run --rm ghcr.io/gunet/puppeteer npm list`
 * General Run: `docker run -it --cap-add=SYS_ADMIN --rm ghcr.io/gunet/puppeteer node --unhandled-rejections=strict <scenario + args>`
+* Using the `run_test.sh`: `docker run -it --cap-add=SYS_ADMIN --rm ghcr.io/gunet/puppeteer ./run_test.sh <scenario> <url>`
 * Specific scenarios:
   - `cas`: `./login.js <SSO BASE URL>`
 * Arguments

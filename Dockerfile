@@ -36,6 +36,7 @@ RUN cd ${PUPPETEER_ROOT} && \
     npm cache clean -f
 COPY --chown=pptruser:pptruser *.js ${PUPPETEER_ROOT}/
 COPY --chown=pptruser:pptruser scenarios/ ${PUPPETEER_ROOT}/scenarios/
+COPY --chown=pptruser:pptruser --chmod=0755 scripts/ ${PUPPETEER_ROOT}/
 
 WORKDIR ${PUPPETEER_ROOT}
 
