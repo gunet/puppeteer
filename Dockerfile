@@ -1,7 +1,7 @@
 FROM ghcr.io/puppeteer/puppeteer:latest AS puppeteer
 FROM node:20-bullseye-slim
 
-LABEL gr.gunet.uRescom.maintainer="info@gunet.gr"
+LABEL gr.gunet.puppeteer.maintainer="info@gunet.gr"
 LABEL org.opencontainers.image.source="https://github.com/gunet/puppeteer"
 LABEL org.opencontainers.image.description="GUNet uResCom"
 
