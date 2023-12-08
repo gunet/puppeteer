@@ -34,7 +34,7 @@ console.log(url[0]);
     await browser.close();
 })();
 ```
-### Funcions
+### Functions
 * `click`
   - Click a button
   - Arguments
