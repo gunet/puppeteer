@@ -113,7 +113,7 @@ console.log(url[0]);
   - Example: `await gunet.casLogin(page, process.env.CAS_USER, process.env.CAS_PASSWORD,process.env.CAS_LANG);`
 
 ## Scripts
-* `run_test.sh <scenario> <server URL>`: Run a specific specified scenario against the `<server URL>`. For example: `./run_test.sh cas https://host.docker.internal:8443/cas`
+* `run_test.sh <scenario> <server URL>`: Run a specific specified scenario against the `<server URL>`. For example: `run_test.sh cas https://host.docker.internal:8443/cas`. The `scenario` is a folder under `scenarios/` containing a file `script.js`
 
 ## Usage
 * Build: `docker compose -f docker-compose.build.yaml build`
@@ -134,9 +134,9 @@ COPY scenarios/ ${PUPPETEER_ROOT}/scenarios/
   - `CAS_TYPE`: The CAS type. Can be one of `simple-cas` for typical CAS (default) or `gunet-cas` (for GUNet CAS)
 * Show module version: `docker run --rm ghcr.io/gunet/puppeteer npm list`
 * General Run: `docker run -it --cap-add=SYS_ADMIN --rm ghcr.io/gunet/puppeteer node --unhandled-rejections=strict <scenario + args>`
-* Using the `run_test.sh`: `docker run -it --cap-add=SYS_ADMIN --rm ghcr.io/gunet/puppeteer ./run_test.sh <scenario> <url>`
 * Specific scenarios:
   - `cas`: `./login.js <SSO BASE URL>`
+* Using the `run_test.sh` (scenarios ): `docker run -it --cap-add=SYS_ADMIN --rm ghcr.io/gunet/puppeteer bash run_test.sh <scenario> <url>`
 * Arguments
   - `<SSO BASE URL>`: An example might be `https://sso.uoi.gr` or `https://worker-01.dev.gunet.gr:8443/cas` (in the case of `simple-cas`)
 * Automatic testig with docker compose stack: `docker compose -f <your docker compose stack yaml file> up --exit-code-from <puppeteer service> --attach <puppeteer service`
