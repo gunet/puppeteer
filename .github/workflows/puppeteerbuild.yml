@@ -6,12 +6,17 @@ on:
   push:
     branches:
       - "main"
+    tags:
+      - '*'
     paths:
       - 'scenarios/**'
       - 'gunet.js'
       - 'login.js'
       - 'Dockerfile'
       - 'package.json'      
+# Create an env var for the Docker image tag. Use the git tag if available, otherwise the latest
+env:
+  TAG_NAME: ${{ github.ref_type == 'tag' && github.ref_name || 'latest' }}
 
 jobs:
   build-puppeteer:
@@ -55,7 +60,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: gunet/puppeteer:latest
+          tags: gunet/puppeteer:${{ env.TAG_NAME }}
           labels: gr.gunet.puppeteer.latest.pushdate=${{ steps.date.outputs.push_date }}
           cache-from: type=registry,ref=gunet/puppeteer:buildcache
           cache-to: type=registry,ref=gunet/puppeteer:buildcache,mode=max
