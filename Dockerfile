@@ -25,12 +25,12 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd -r pptruser && useradd -rm -g pptruser -G audio,video pptruser
 
-USER pptruser
-
 RUN mkdir -p ${PUPPETEER_ROOT}/scenarios
 
-COPY --from=puppeteer ${PUPPETEER_ROOT}/ ${PUPPETEER_ROOT}/
+COPY --from=puppeteer --chown=pptruser:pptruser ${PUPPETEER_ROOT}/ ${PUPPETEER_ROOT}/
+
 COPY --chown=pptruser:pptruser package.json ${PUPPETEER_ROOT}/
+USER pptruser
 RUN cd ${PUPPETEER_ROOT} && \
     npm install && \
     npm cache clean -f
