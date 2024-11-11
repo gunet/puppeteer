@@ -9,7 +9,7 @@ const {ImgurClient} = require('imgur');
 const path = require("path");
 
 const BROWSER_OPTIONS = {
-    ignoreHTTPSErrors: true,
+    acceptInsecureCerts: true,
     headless: process.env.HEADLESS === "true",
 //    devtools: process.env.CI !== "true",
     defaultViewport: null,
