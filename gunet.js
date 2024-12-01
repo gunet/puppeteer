@@ -10,7 +10,7 @@ const path = require("path");
 
 const BROWSER_OPTIONS = {
     acceptInsecureCerts: true,
-    headless: process.env.HEADLESS === "true",
+    headless: process.env.HEADLESS === "true" ? 'shell' : false,
 //    devtools: process.env.CI !== "true",
     defaultViewport: null,
     slowMo: process.env.CI === "true" ? 0 : 10,
@@ -142,10 +142,10 @@ exports.assertNoTicketGrantingCookie = async (page) => {
 }
 
 exports.casLogin = async (page, user, password, cas_type = 'simple-cas', cas_lang = "en") => {
-    await page.waitForTimeout(1000)
+    await this.sleep(1000);
     await this.loginWith(page, user, password);
     await this.assertTicketGrantingCookie(page);
-    await page.waitForTimeout(2000)
+    await this.sleep(2000);
     if (cas_type == 'simple-cas') {
         if (cas_lang === 'en') {
             await this.assertInnerText(page, '#content div h2', "Log In Successful");
@@ -167,7 +167,7 @@ exports.casLogin = async (page, user, password, cas_type = 'simple-cas', cas_lan
 exports.submitForm = async (page, selector) => {
     console.log(`Submitting form ${selector}`);
     await page.$eval(selector, form => form.submit());
-    await page.waitForTimeout(2500)
+    await this.sleep(2500);
 }
 
 exports.type = async (page, selector, value) => {

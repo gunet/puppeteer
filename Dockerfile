@@ -1,4 +1,4 @@
-FROM ghcr.io/puppeteer/puppeteer:latest AS puppeteer
+FROM ghcr.io/puppeteer/puppeteer:23.9.0 AS puppeteer
 FROM node:20-bullseye-slim
 
 LABEL gr.gunet.puppeteer.maintainer="info@gunet.gr"

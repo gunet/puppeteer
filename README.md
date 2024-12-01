@@ -69,7 +69,7 @@ console.log(url[0]);
 * `assertTextInSource`
   - Check that a certain text is present in page source (for instance when handling text/json/xml pages)
   - Arguments
-    - `page`
+    - `page` element
     - `value` to search for
   - Example: `await gunet.assertTextInSource(page,'OAuth2Token');`
 * `assertPageTitle`
@@ -85,6 +85,10 @@ console.log(url[0]);
     - `selector`
     - `value` typed
   - Example: `await gunet.type(page, "#token",'999666');`
+* `sleep`
+  - Sleep for `ms`
+  - Arguments
+    - `ms`
 * `submitForm`
   - Submit Form
   - Arguments
