@@ -43,6 +43,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          provenance: false
+          sbom: false
           tags: ghcr.io/gunet/puppeteer:latest
           labels: gr.gunet.puppeteer.latest.pushdate=${{ steps.date.outputs.push_date }}
           cache-from: type=registry,ref=ghcr.io/gunet/puppeteer:buildcache
@@ -60,6 +62,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          provenance: false
+          sbom: false
           tags: gunet/puppeteer:${{ env.TAG_NAME }}
           labels: gr.gunet.puppeteer.latest.pushdate=${{ steps.date.outputs.push_date }}
           cache-from: type=registry,ref=gunet/puppeteer:buildcache
