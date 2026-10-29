@@ -1,5 +1,5 @@
 FROM ghcr.io/puppeteer/puppeteer:23.9.0 AS puppeteer
-FROM node:20-bullseye-slim
+FROM node:20-bookworm-slim
 
 LABEL gr.gunet.puppeteer.maintainer="info@gunet.gr"
 LABEL org.opencontainers.image.source="https://github.com/gunet/puppeteer"
